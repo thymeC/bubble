@@ -9,28 +9,40 @@
   - [Backend](backend/backend.md)
 - Frontend
   - [Overview](frontend/overview.md)
+  - [CSS](frontend/css.md)
 - Programming Languages
   - [Overview](programming-languages/overview.md)
   - Python
+    - [Debug Issues](programming-languages/python/debug-issue.md)
     - [Exception Handling](programming-languages/python/exception.md)
     - [Logging](programming-languages/python/log.md)
     - [Decorators](programming-languages/python/python-decorators.md)
+  - Go
+    - [Gem](programming-languages/go/gem.md)
 - DevOps
   - [Overview](devops/overview.md)
+  - Ansible
+    - [Ansible](devops/ansible/ansible.md)
   - Docker
     - [Docker Best Practices](devops/docker/docker.md)
     - [Docker Practice](devops/docker/docker-practice.md)
     - [Dockerfile Q&A](devops/docker/dockerfile-qna.md)
-  - [Kubernetes](devops/kubernetes/kubernetes.md)
+  - Kubernetes
+    - [Kubernetes](devops/kubernetes/kubernetes.md)
+    - [K8s](devops/kubernetes/k8s.md)
   - [OpenShift](devops/openshift/openshift.md)
 - Databases
   - [Overview](databases/overview.md)
   - [SQL Cheatsheet](databases/sql-cheatsheet.md)
+- Data
+  - [ETL](data/etl.md)
 - Testing
   - [Overview](testing/overview.md)
   - [Test Pattern](testing/test-pattern.md)
   - Pytest
+    - [Pytest](testing/pytest/pytest.md)
     - [Mock Testing](testing/pytest/mock.md)
+    - [Pytest Mock](testing/pytest/pytest-mock.md)
     - [MongoMock](testing/pytest/mongomock.md)
 - Security
   - [Overview](security/overview.md)
@@ -44,7 +56,12 @@
   - [IP Address and Domain](network/ip-address-and-domain.md)
   - [Status Codes](network/状态码.md)
 - Tools
+  - [Curl](tools/curl.md)
+  - [Flink](tools/flink.md)
   - [Have I Been Pwned](tools/have-I-been-pwned.md)
+  - [Python HTTP Server](tools/python-http-server.md)
+  - [Wireshark](tools/wireshark.md)
+  - [空间时间复杂度](tools/空间时间复杂度.md)
 - Gem
   - [Gitignore](gem/gitignore.md)
 - Todo
