@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/47932725/configuring-interpreter-in-pycharm-please-use-a-different-sdk-name
