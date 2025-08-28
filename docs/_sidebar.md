@@ -9,7 +9,8 @@
   - [Backend](backend/backend.md)
 - Frontend
   - [Overview](frontend/overview.md)
-  - [CSS](frontend/css.md)
+  - CSS
+    - [CSS Selectors](frontend/css/css.md)
 - Programming Languages
   - [Overview](programming-languages/overview.md)
   - Python

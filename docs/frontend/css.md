@@ -1,1 +1,0 @@
-![](css basic cheatsheet.png)
