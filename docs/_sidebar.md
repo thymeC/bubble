@@ -7,6 +7,16 @@
 - Backend
   - [Overview](backend/overview.md)
   - [Backend](backend/backend.md)
+- Computer
+  - [Data Structure](computer/data-structure.md)
+- Linux
+  - [CentOS RockyLinux](linux/centos-rockylinux.md)
+  - [Network Debug Cursor](linux/network-debug-cursor.md)
+  - Kernal
+    - [1.1 C](linux/kernal/1.1-c.md)
+    - [Linux Command](linux/kernal/linux-command.md)
+    - [Linux Folder Structure](linux/kernal/linux-folder-structure.md)
+    - [Linux Kernal Learning Path](linux/kernal/linux-kernal-learning-path.md)
 - Frontend
   - [Overview](frontend/overview.md)
   - CSS
@@ -22,6 +32,7 @@
     - [Gem](programming-languages/go/gem.md)
 - DevOps
   - [Overview](devops/overview.md)
+  - [Jenkins](devops/Jenkins.md)
   - Ansible
     - [Ansible](devops/ansible/ansible.md)
   - Docker
@@ -39,7 +50,9 @@
   - [ETL](data/etl.md)
 - Testing
   - [Overview](testing/overview.md)
+  - [Test Theory](testing/test-theory.md)
   - [Test Pattern](testing/test-pattern.md)
+  - [Free API](testing/free-api.md)
   - Pytest
     - [Pytest](testing/pytest/pytest.md)
     - [Mock Testing](testing/pytest/mock.md)

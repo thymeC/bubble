@@ -1,10 +1,12 @@
 当然可以！pytest 是一个非常强大且流行的 Python 测试框架，以其简洁的语法和丰富的功能而著称。下面我为你总结了它的核心特性和常用装饰器，希望能帮助你在面试中脱颖而出。
 
+## Pytest Example
+Refer to [GitHub pytest playground](https://github.com/thymeC/pytest-playground)
+
+The example is more detailed on knowledge with examples. Following doc just kept for reference.
 ---
 
 ### 一、pytest 的核心特性 & 优势 (Key Features & Advantages)
-
-这是面试官最想听到的内容，能体现你对工具的理解深度。
 
 1.  **简洁的语法**
     *   使用简单的 `assert` 语句进行断言，无需学习像 `unittest` 中那么多的 `self.assert*` 方法。
