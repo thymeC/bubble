@@ -9,6 +9,7 @@
   - [Backend](backend/backend.md)
 - Computer
   - [Data Structure](computer/data-structure.md)
+  - [Software Engineering](computer/software-engineering.md)
 - Linux
   - [CentOS RockyLinux](linux/centos-rockylinux.md)
   - [Network Debug Cursor](linux/network-debug-cursor.md)
@@ -69,11 +70,14 @@
   - [Network Concepts](network/network-concepts.md)
   - [IP Address and Domain](network/ip-address-and-domain.md)
   - [Status Codes](network/状态码.md)
+  - [HTTPS](network/https.md)
+  - [TCP/IP](network/tcp-ip.md)
 - Tools
   - [Curl](tools/curl.md)
   - [Flink](tools/flink.md)
   - [Have I Been Pwned](tools/have-I-been-pwned.md)
   - [Python HTTP Server](tools/python-http-server.md)
+  - [SSH Generate Key](tools/ssh-generate-key.md)
   - [Wireshark](tools/wireshark.md)
   - [空间时间复杂度](tools/空间时间复杂度.md)
 - Gem

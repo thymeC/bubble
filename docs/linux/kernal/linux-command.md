@@ -35,6 +35,106 @@ ls is /usr/bin/ls
 
 ```
 
+理解 `man` 命令和 GNU 选项的风格是成为 Linux 命令行高手的关键一步。
+
+我会分两部分来解答：1) 快速理解 `man` 页的结构；2) 如何高效地从中获取知识，特别是关于**选项**的部分。
+
+---
+
+### 第一部分：`man` 命令页面包含哪些内容？（结构解析）
+
+`man` 手册页不是胡乱堆砌的，它有一个非常标准的结构。你不需要每次都从头读到尾，而是应该学会“按图索骥”，直接跳到你关心的部分。
+
+一个典型的 `man` 页面通常包含以下**核心章节**（NAME 和 DESCRIPTION 是最重要的）：
+
+| 章节标题 (NAME) | 中文含义 & 内容 |
+| :--- | :--- |
+| **NAME** | **名称**：命令名称和一行简要介绍。这就是 `whatis` 命令显示的内容。 |
+| **SYNOPSIS** | **概要**：**极其重要！** 展示命令的**语法格式**，包括所有选项和参数的用法。 |
+| **DESCRIPTION** | **描述**：**核心内容！** 详细描述命令的功能以及每个选项的**具体含义**。 |
+| **OPTIONS** | **选项**： (有时合并于 DESCRIPTION 中) 详细解释每个选项（`-a`, `--all` 等）的作用。 |
+| **EXAMPLES** | **示例**： (不是所有命令都有) **最佳学习材料！** 展示常用的命令示例。 |
+| **EXIT STATUS** | **退出状态**： 命令执行成功后或失败后返回的代码及其含义。 |
+| **SEE ALSO** | **参见**： **非常有价值！** 列出与当前命令相关的其他命令或文档。 |
+| **AUTHOR, BUGS, COPYRIGHT** | **作者、已知缺陷、版权**： 这些是补充信息。 |
+
+---
+
+### 第二部分：如何快速获取知识（特别是GNU选项）
+
+GNU 风格的选项通常以双连字符 `--` 开头，例如 `--help`, `--all`。它们比单字母选项（如 `-a`）更直观易记。
+
+#### 技巧 1：直接查看 SYNOPSIS 和 DESCRIPTION
+
+这是最标准的方法。
+
+1.  **打开 `man` 页**：例如 `man ls`。
+2.  **直接翻到 OPTIONS 部分**：
+    *   按下 `/` 键，进入搜索模式。
+    *   输入 `/^OPTIONS` 然后按回车。`^` 表示匹配行首，这样能精准定位到 OPTIONS 章节。
+3.  **在 DESCRIPTION 中搜索**：
+    *   同样按下 `/`，然后输入你要找的选项名，例如 `/--all`。
+    *   按 `n` 键跳到下一个匹配项，`N` 键跳到上一个。
+
+#### 技巧 2：使用 `--help` 选项（最快最常用！）
+
+绝大多数 GNU 命令都支持这个选项。它能直接打印出**语法格式和选项的简要说明**，比 `man` 更简洁、更快速。
+
+**用法：** `[命令] --help`
+
+**例如：**
+```bash
+ls --help
+```
+输出会立即显示所有选项的列表和简短解释，非常适合快速查阅。
+```
+...
+  -a, --all                  不隐藏任何以 . 开始的项目
+  -A, --almost-all           列出除 . 及 .. 以外的任何项目
+  -l                         使用较长格式列出信息
+...
+```
+
+#### 技巧 3：在 man 页内使用搜索 (`/`)
+
+正如前面提到的，这是导航长篇幅 `man` 页的利器。
+*   `/PATTERN`： 向前搜索 “PATTERN”（如 `/--help`）
+*   `?PATTERN`： 向后搜索 “PATTERN”
+*   `n`： 跳到下一个匹配项
+*   `N`： 跳到上一个匹配项
+
+#### 技巧 4：使用 `apropos` 或 `man -k` 寻找命令
+
+**This one not working in rockylinux**
+
+如果你**连用什么命令都不知道**，只知道你想**做什么**，可以用这个命令。
+
+它会在所有 `man` 页的 **NAME** 部分中进行搜索。
+
+**例如：** 你想找一个“解压”的命令，但不知道是 `tar` 还是 `unzip`。
+```bash
+apropos "extract"
+man -k "extract"
+```
+系统会列出所有简介中包含 “extract” 的命令。
+
+---
+
+### 总结与快速指南
+
+| 你的需求 | 应该使用的命令 | 为什么 |
+| :--- | :--- | :--- |
+| **快速查看某个命令的所有选项和简要说明** | `ls --help` | **最快**，输出简洁，一目了然。 |
+| **深入了解某个命令的详细用法、原理和示例** | `man ls` | **最详细**，包含所有背景知识和技术细节。 |
+| **在详细的 `man` 页中快速定位（如选项）** | 进入 `man` 后按 `/^OPTIONS` | **高效导航**，直接跳到核心章节。 |
+| **查找一个不知道名字的命令** | `apropos "关键词"` | **基于功能搜索**，帮助你发现命令。 |
+
+**最终建议：**
+*   日常使用中，**`[command] --help` 是你的首选工具**，因为它速度极快。
+*   当 `--help` 无法满足（例如找不到某个选项的具体行为或想了解原理）时，再进入 **`man`** 手册进行深度阅读。
+*   熟练使用 **`/`** 搜索来在 `man` 页中快速定位。
+
+
 2. help
 ```shell
 # following both work in rockylinux (with man installed)
@@ -145,3 +245,223 @@ MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.  15000.0 avail Mem
 *   **`1`** (数字)：显示所有CPU核心的单独使用情况（再按一次切换回汇总视图）。
 *   **`z`**：切换彩色/黑白显示。
 *   **`q`**：退出 `top`。
+
+
+## pwd
+pwd — Print Working Directory
+
+## ls
+
+`ls` — List directory contents
+
+### Most Useful Parameters
+
+#### Basic Options
+```bash
+# List all files including hidden ones (starting with .)
+ls -a
+
+# List in long format with detailed information
+ls -l
+
+# Combine -a and -l for detailed listing of all files
+ls -la
+
+# List in human-readable format (file sizes in KB, MB, GB)
+ls -lh
+
+# List all files with human-readable sizes
+ls -lah
+```
+
+#### Sorting and Formatting
+```bash
+# Sort by modification time (newest first)
+ls -lt
+
+# Sort by modification time (oldest first)
+ls -ltr
+
+# Sort by file size (largest first)
+ls -lS
+
+# Sort by file size (smallest first)
+ls -lSr
+
+# Sort by name (case-insensitive)
+ls -l
+
+# Sort by name (case-sensitive)
+ls -lU
+```
+
+#### Display Options
+```bash
+
+# Show directory contents recursively
+ls -R
+
+# Show only directories
+ls -d */
+```
+
+#### Understanding `ls -d */`
+
+The `ls -d */` command is a powerful combination that shows **only directories** in the current location. Let's break it down:
+
+**Components:**
+- `ls` - The list command
+- `-d` - Directory option (treats directories as files, don't list their contents)
+- `*/` - Shell glob pattern that matches only directories(anything ending with /)
+
+**How it works:**
+```bash
+# Basic usage - shows only directory names
+ls -d */
+
+# Example output:
+# dir1/  dir2/  dir3/
+
+# Compare with regular ls (shows everything):
+ls
+# file1.txt  file2.log  dir1/  dir2/  dir3/
+
+# Compare with ls -l (shows detailed info for everything):
+ls -l
+# -rw-r--r-- 1 user user 1024 Jan 1 12:00 file1.txt
+# drwxr-xr-x 2 user user 4096 Jan 1 12:00 dir1/
+# drwxr-xr-x 2 user user 4096 Jan 1 12:00 dir2/
+```
+
+**Why use `-d`?**
+Without `-d`, `ls */` would try to list the **contents** of each directory:
+```bash
+# Without -d (shows contents of each directory)
+ls */
+# dir1:
+# file1.txt  file2.txt
+# 
+# dir2:
+# subdir1/  file3.txt
+
+# With -d (shows only directory names)
+ls -d */
+# dir1/  dir2/
+```
+
+**Useful variations:**
+```bash
+# Show directories with detailed info
+ls -ld */
+
+# Show only directories (alternative method)
+ls -l | grep "^d"
+
+# Show directories with specific pattern
+ls -d */ | grep "test"
+```
+
+#### Advanced Options
+```bash
+# Show file timestamps in ISO format
+ls -l --time-style=iso
+
+# Show only files (not directories)
+ls -p | grep -v /$
+
+# Show files with specific permissions
+ls -l | grep "^d"  # Show only directories
+ls -l | grep "^-"  # Show only regular files
+
+# Show files modified in last 24 hours
+ls -lt | head -10
+
+# Show files with specific extensions
+ls *.txt
+ls *.log
+```
+
+#### Common Combinations
+```bash
+# Most commonly used combination
+ls -lah
+
+# Show recent files with details
+ls -lath
+
+# Show files sorted by size with human-readable format
+ls -lahS
+
+# Show hidden files with details and type indicators
+ls -laF
+
+# Show directory tree structure (if tree command not available)
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+```
+
+#### Useful Aliases
+Add these to your `~/.bashrc` or `~/.zshrc`:
+```bash
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls -CF'
+alias lt='ls -lath'
+alias lsize='ls -lahS'
+```
+
+#### Adding Aliases to .bashrc
+
+**Method 1: Using echo (simple)**
+```bash
+echo "alias ll='ls -lah'" >> ~/.bashrc
+```
+
+**Method 2: Using printf (more reliable)**
+```bash
+printf "alias ll='ls -lah'\n" >> ~/.bashrc
+```
+
+**Method 3: Add multiple aliases at once**
+```bash
+cat >> ~/.bashrc << 'EOF'
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls -CF'
+alias lt='ls -lath'
+alias lsize='ls -lahS'
+EOF
+```
+
+**Method 4: Check if alias exists before adding**
+```bash
+grep -q "alias ll=" ~/.bashrc || echo "alias ll='ls -lah'" >> ~/.bashrc
+```
+
+**Apply changes immediately:**
+```bash
+# Reload .bashrc in current session
+source ~/.bashrc
+
+# Or use the shorthand
+. ~/.bashrc
+```
+
+**Manage aliases:**
+```bash
+# List all current aliases
+alias
+
+# Remove an alias (temporarily)
+unalias ll
+
+# Check if .bashrc exists
+ls -la ~/.bashrc
+
+# Create .bashrc if it doesn't exist
+touch ~/.bashrc
+
+# Edit .bashrc with your preferred editor
+nano ~/.bashrc
+# or
+vim ~/.bashrc
+```
